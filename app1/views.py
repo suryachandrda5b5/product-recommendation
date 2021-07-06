@@ -83,5 +83,18 @@ def about(request):
     return render(request,'app1/about.html',context)
 
 def contact(request):
-    context = { "response" : "POST Response Expected"}
-    return render(request,'app1/contact.html',context)
+    if request.method == 'POST':
+        product = request.POST['product']
+        print(product)
+        print(type(product))
+        # received_json_data = json.loads(request.body.decode("utf-8"))
+        # name = received_json_data["name"]
+        try:
+            context = { "product" : str(get_recommendations(product))}
+        except:
+            context = { "product" : "Wrong Product Name"}
+        print("HERE", context)
+        return render(request,'app1/contact.html',context)
+
+    else:
+        return render(request,'app1/contact.html')

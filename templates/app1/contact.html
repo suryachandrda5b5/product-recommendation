@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
-    <title>Hotel BT | Contact</title>
+    <title>Code Assassins | Recommend</title>
 </head>
 <body>
     <header>
@@ -30,46 +30,50 @@
         <div class="container">
             <h1 class="l-heading">Get <span class="text-primary">Recommendation</span></h1>
             <p>Enter a Product Name</p>
-            <form action="process.php">
+            <form action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name">
+                    <label for="name">Product Name</label>
+                    <input type="text" name="product" id="product">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" email="email" id="email">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea type="text" message="message" id="message"></textarea>
-                </div>
+                </div> -->
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div>
     </section>
 
-    <section id="contact-info" class="bg-dark">
-        <div class="container">
-                <div class="box bg-dark">
-                        <i class="fas fa-hotel fa-3x"></i>
-                        <h3>Location</h3>
-                        <p>Bengaluru</p>
-                    </div>
-                    <div class="box bg-dark">
-                            <i class="fas fa-phone fa-3x"></i>
-                            <h3>Phone Number</h3>
-                            <p>(+91)9876543210</p>
-                    </div>
-                    <div class="box bg-dark">
-                            <i class="fas fa-envelope fa-3x"></i>
-                            <h3>Email Address</h3>
-                            <p>frontdesk@hotelbt.co</p>
-                    </div>
+    <section>
+        {{product}}
+
+    </section>
+
+    <section id="features">
+        <div class="box bg-light">
+            <i class="fab fa-python fa-3x"></i>
+            <h3>Recommendations</h3>
+            <p>Using python we recommend products, by extracting features from related metadata fields.</p>
+        </div>
+        <div class="box bg-primary">
+                <i class="fas fa-pager fa-3x"></i>
+                <h3>API Support</h3>
+                <p> This product has multiple flavours. This recommendation algorithm can be used as an API.</p>
+        </div>
+        <div class="box bg-light">
+                <i class="fas fa-crop-alt fa-3x"></i>
+                <h3>IFrame Compatible</h3>
+                <p> This product has multiple flavours. This algorithm also works as a website and can be used as an Iframe.</p>
         </div>
     </section>
     
     <footer id="main-footer">
-        <p>Hotel BT &copy 2019, All Rights Reserverd</p>
+        <p>CA &copy 2021, All Rights Reserverd</p>
     </footer>
 </body>
 </html>
