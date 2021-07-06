@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="welcome to the hotel website">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <title>Code Assassins | Welcome</title>
+</head>
+<body>
+    <header>
+        <nav id = "navbar">
+            <div class="container">
+            <h1 class="logo"><a href="first"> CA</a></h1>
+                <ul>
+                    <li><a class="current" href="first">Home</a></li>
+                    <li><a href="contact">Recommend a Product</a></li>
+                    <li><a href="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+
+        <div id="showcase">
+            <div class="container">
+                 <div class="showcase-content">
+                     <h1><span class="text-primary">Welcome</span></h1>
+                     <p class="lead">Do search a product and see how our algorithm <br/>
+                     works in the "Recommend a product" Tab</p>
+                     <a class="btn" href="about">About our Developers</a>
+                 </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- <section id="home-info" class="bg-dark">
+        <div class="info-img"></div>
+        <div class="info-content">
+            <h2><span class="text-primary">The history</span> of our Hotel</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Modi sed natus nemo sit aliquid dignissimos quasi cumque iure eligendi voluptatem?</p>
+            <a href="about.html" class="btn btn-light">Read More    </a>
+        </div>
+
+    </section> -->
+
+    <section id="features">
+        <div class="box bg-light">
+            <i class="fab fa-python fa-3x"></i>
+            <h3>Recommendations</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, tenetur.</p>
+        </div>
+        <div class="box bg-primary">
+                <i class="fas fa-pager fa-3x"></i>
+                <h3>Single Page Application</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, tenetur.</p>
+        </div>
+        <div class="box bg-light">
+                <i class="fas fa-crop-alt fa-3x"></i>
+                <h3>IFrame Compatible</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, tenetur.</p>
+        </div>
+    </section>
+    <div class="clr"></div>
+    <footer id="main-footer">
+        <p>CA &copy 2021, All Rights Reserverd</p>
+    </footer>
+</body>
+</html>

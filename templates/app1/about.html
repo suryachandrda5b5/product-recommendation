@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="welcome to the hotel website">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Code Assassins | About</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="logo"><a href="first"> CA</a></h1>
+                <ul>
+                    <li><a href="first">Home</a></li>
+                    <li><a href="contact">Recommend a Product</a></li>
+                    <li><a class="current" href="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <section id="about-info" class="bg-light py-3">
+        <div class="container">
+            <div class="info-left">
+                <h1 class="l-heading"><span class="text-primary">About</span> our Idea</h1>
+                <p>The idea is by using machine learning to provide recommendation on :</p>
+                <ul>
+                    <li>what is the recommended configuration for each product recommendation</li>
+                    <li>What is the recommended product to be offered</li>
+                </ul>
+
+                <p>recommendation can be based on:</p>
+                <ul>
+                    <li>Combination of IB which similar customer profile already have</li>
+                    <li>Past history of sold product configuration for similar customer profile</li>
+                </ul>
+
+            </div>
+            <div class="info-right">
+                <img src="{% static 'img/idea.jpg' %}" alt="hotel">
+
+            </div>
+        </div>
+    </section>
+
+    <div class="clr"></div>
+
+    <section id="testimonials" class="py-3">
+        <div class="container">
+            <h2 class="l-heading">Know the DEVELOPERS</h2>
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/rakesh.jpg' %}" alt="person1">
+                <p><b>Rakesh Gottipati</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+
+            </div>
+
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/Deepak.jpg' %}" alt="person2 ">
+                <p><b>Deepak Kumar</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+            </div>
+
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/varun.png' %}" alt="person2 ">
+                <p><b>Varun Shah</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+            </div>
+
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/sateesh.png' %}" alt="person2 ">
+                <p><b>Sateesh Chava</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+            </div>
+
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/surya.jpg' %}" alt="person2 ">
+                <p><b>Surya Chandra Peddada</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+            </div>
+
+            <div class="testimonial bg-primary">
+                <img src="{% static 'img/manasa.png' %}" alt="person2 ">
+                <p><b>Manasa Kadaveru</b></p>
+                <p>Sr Staff Technical Product Manager</p>
+                <p>HC DT-Commercial</p>
+            </div>
+
+        </div>
+    </section>
+    <footer id="main-footer">
+        <p>CA &copy 2021, All Rights Reserverd</p>
+    </footer>
+</body>
+
+</html>

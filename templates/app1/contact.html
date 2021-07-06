@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="welcome to the hotel website">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+    <title>Hotel BT | Contact</title>
+</head>
+<body>
+    <header>
+        <nav id = "navbar">
+            <div class="container">
+            <h1 class="logo"><a href="first"> CA</a></h1>
+                <ul>
+                    <li><a href="first">Home</a></li>
+                    <li><a class="current" href="contact">Recommend a Product</a></li>
+                    <li><a href="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="contact-form" class="py-3">
+        <div class="container">
+            <h1 class="l-heading">Get <span class="text-primary">Recommendation</span></h1>
+            <p>Enter a Product Name</p>
+            <form action="process.php">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" email="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea type="text" message="message" id="message"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact-info" class="bg-dark">
+        <div class="container">
+                <div class="box bg-dark">
+                        <i class="fas fa-hotel fa-3x"></i>
+                        <h3>Location</h3>
+                        <p>Bengaluru</p>
+                    </div>
+                    <div class="box bg-dark">
+                            <i class="fas fa-phone fa-3x"></i>
+                            <h3>Phone Number</h3>
+                            <p>(+91)9876543210</p>
+                    </div>
+                    <div class="box bg-dark">
+                            <i class="fas fa-envelope fa-3x"></i>
+                            <h3>Email Address</h3>
+                            <p>frontdesk@hotelbt.co</p>
+                    </div>
+        </div>
+    </section>
+    
+    <footer id="main-footer">
+        <p>Hotel BT &copy 2019, All Rights Reserverd</p>
+    </footer>
+</body>
+</html>
