@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c2tj888$=s@oc#1j$*__oh088_-b!8q=4p_sak-g5_341r^&n!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['gehackelite.herokuapp.com','localhost','127.0.0.1']
 
