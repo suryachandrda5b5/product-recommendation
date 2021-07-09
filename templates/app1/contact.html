@@ -289,7 +289,8 @@
       </style>
     <script>
         function addRmProduct(){
-alert("Details Added to the Cart");
+//alert("Details Added to the Cart");
+            window.parent.postMessage('herokuMsg','*');
         }
     </script> 
     <meta charset="UTF-8">
