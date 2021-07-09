@@ -2,10 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function addRmProduct(){
+alert("Details Added to the Cart");
+        }
+    </script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="welcome to the hotel website">
+    <link rel="javascript" href="{% static 'js/productRecommend.js' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -49,9 +55,42 @@
         </div>
     </section>
 
-    <section>
-        {{product}}
-
+    <section id="contact-table" class="py-3">
+        <div class="container">
+            {% if product.items %}
+            <h3>Recommended Products</h3>
+            {% endif %}
+            {% for key, value in product.items %}    
+            {% if key == "prData" %}
+            <table class="styled-table">
+                <tr>
+                    <th>select</th>
+                    <th>OpportunityId</th>
+                    <th>AccountName</th>
+                    <th>OpptyName</th>
+                    <th>ProductID</th>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>NetPrice</th>                    
+                </tr>
+                {% for key1 in value %}
+                <tr>
+                  <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
+                    {% for key2,value2 in key1.items %}
+                    <td>{{value2}} </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+           
+            {% endfor %}   
+            {% if product.items %}
+            <button type="button" class="btn" onclick="addRmProduct()">Add to Cart</button> 
+            <button type="button" class="btn" onclick="addRmProduct()">Show Cart</button> 
+            {% endif %}
+          
+        </div>
     </section>
 
     <section id="features">
