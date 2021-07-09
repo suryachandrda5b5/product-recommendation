@@ -17,7 +17,7 @@ h1, h2, h3{
 p{
     margin: 10px 0;
 }
-/* utility class */
+
 .container{
     overflow: auto;
     padding: 0 20px;
@@ -83,7 +83,7 @@ p{
     padding: 30px 0;
 }
 
-/* navbar */
+
 #navbar{
     background:#333;
     color: white;
@@ -115,7 +115,7 @@ p{
 }
 
 
-/* showcase */
+
 #showcase{
     background: url(../img/showcase3.jpg) no-repeat center center/cover;
     height: 600px;
@@ -136,7 +136,7 @@ p{
 }
 
 
-/* home info */
+
 #home-info{
     height: 400px;
 }
@@ -170,7 +170,7 @@ p{
     margin-bottom: 10px;
 }
 
-/* about page */
+
    
 #about-info .info-right{
     float: right;
@@ -190,7 +190,7 @@ p{
     min-height: 100%;
 }
 
-/* testimonails */
+
 
 #testimonials{
     
@@ -217,7 +217,7 @@ p{
     border-radius: 50%;
 }
 
-/* contact form */
+
 #contact-form .form-group{
     margin-bottom: 20px;
 }
@@ -240,7 +240,7 @@ p{
     border-color: #f7c08a;
 }
 
-/* bookroom form */
+
 #bookroom-form .form-group{
     margin-bottom: 20px;
 }
@@ -267,7 +267,7 @@ p{
 
 
 
-/* footer */
+
 #main-footer{
     text-align: center;
     background: #444;
@@ -298,7 +298,7 @@ p{
     padding: 12px 15px;
 }
 .styled-table tbody tr {
-    /* border-bottom: 1px solid #dddddd; */
+  
     border-bottom: 1px solid #dddddd;
      
 }
