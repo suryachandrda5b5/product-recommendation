@@ -90,7 +90,12 @@ def contact(request):
         # received_json_data = json.loads(request.body.decode("utf-8"))
         # name = received_json_data["name"]
         try:
-            context = { "product" : str(get_recommendations(product))}
+           # context = { "product" : str(get_recommendations(product))}
+           
+        #    context = { "product" : json.loads('{"key1":"value1","key2":"value2","key3":"value3"}')}
+        #  context = { "product" : json.loads('{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"ram@gmail.com","OpptyName":23,"ProductID":"","ProductName":"","Quantity":"","NetPrice":""},{"OpportunityId":"p002","AccountName":"ram@gmail.com","OpptyName":23,"ProductID":"","ProductName":"","Quantity":"","NetPrice":""},{"OpportunityId":"p003","AccountName":"ram@gmail.com","OpptyName":23,"ProductID":"","ProductName":"","Quantity":"","NetPrice":""}]}')}
+           context = { "product" : json.loads('{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"AC001","OpptyName":"AbcOP1","ProductID":"PR001","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p002","AccountName":"AC002","OpptyName":"AbcOP2","ProductID":"PR002","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p003","AccountName":"AC003","OpptyName":"AbcOP3","ProductID":"PR003","ProductName":"MR","Quantity":"1","NetPrice":"5000"}]}')}
+
         except:
             context = { "product" : "Wrong Product Name"}
         print("HERE", context)
