@@ -287,12 +287,18 @@
           color: #009879;
       }    
       </style>
-    <script>
-        function addRmProduct(){   
-            let MyDataToPass = '{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"AC001","OpptyName":"AbcOP1","ProductID":"PR001","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p002","AccountName":"AC002","OpptyName":"AbcOP2","ProductID":"PR002","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p003","AccountName":"AC003","OpptyName":"AbcOP3","ProductID":"PR003","ProductName":"MR","Quantity":"1","NetPrice":"5000"}]}';
-			window.parent.postMessage({ message: "getHerokuData", value: MyDataToPass }, "*");
-        }
-    </script> 
+<script>
+    function addRmProduct(){
+        let MyDataToPass = '{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"AC001","OpptyName":"AbcOP1","ProductID":"PR001","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p002","AccountName":"AC002","OpptyName":"AbcOP2","ProductID":"PR002","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p003","AccountName":"AC003","OpptyName":"AbcOP3","ProductID":"PR003","ProductName":"MR","Quantity":"1","NetPrice":"5000"}]}';
+         window.parent.postMessage({ message: "getHerokuData", value: MyDataToPass }, "*");
+//alert("Details Added to the Cart");
+//var data_from_django =JSON.parse(JSON.stringify("{{product|escapejs}}")); 
+//alert(data_from_django);
+console.log("===============>",JSON.stringify("{{product|escapejs}}"));
+     }
+   
+
+</script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -302,7 +308,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
-    <title>Code Assassins | Recommend</title>
+   <title>Code Assassins | Recommend</title>
 </head>
 <body>
     <header>
@@ -321,11 +327,11 @@
     <section id="contact-form" class="py-3">
         <div class="container">
             <h1 class="l-heading">Get <span class="text-primary">Recommendation</span></h1>
-            <p>Enter a Product Name</p>
+            <!-- <p>Enter a Product Name</p> -->
             <form action="{% url 'contact' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="name">Product Name</label>
+                    <label for="name">Enter a Product Name</label>
                     <input type="text" name="product" id="product">
                 </div>
                 <!-- <div class="form-group">
@@ -342,12 +348,58 @@
     </section>
 
     <section id="contact-table" class="py-3">
-        <div class="container">
-            {% if product.items %}
+        <div class="container">      
+
+            <!-- ---{{ product}} -->
+
+            {% if product %}
+
             <h3>Recommended Products</h3>
+             <table class="styled-table">
+                <tr>
+                    <th align="left">select</th>
+                    <!-- <th>OpportunityId</th> -->
+                    <!-- <th>AccountName</th> -->
+                    <!-- <th>OpptyName</th> -->
+                    <th align="left">Product Name</th>
+                    <th align="left">Product ID</th>
+                    
+                    <th>Product Description</th>
+                    <!-- <th>NetPrice</th>                     -->
+                </tr>
+            {% for key in product %}            
+            <tr>
+                {% for key1,value1 in key.items %}
+                {% if key1 == "ProductExternalID" %}                   
+                <td><input type="checkbox" id={{value1}} name={{value1}} value={{value1}}></td>
+                {% endif %}
+                {% endfor %}
+
+            {% for key2, value2 in key.items  %}
+            {% if key2 == "ProductName" %}                  
+              <td align="left">{{value2}} </td>
+              {% endif %}
+
+             {% if key2 == "ProductExternalID" %}                   
+               <td align="left">{{value2}} </td>
+             {% endif %}
+             <!-- {% if key2 == "Quantity" %}                   
+             <td>{{value2}} </td>
+             {% endif %} -->
+              {% if key2 == "ProductDescription" %}                   
+              <td align="left">{{value2}} </td>
+              {% endif %}
+            {% endfor %}
+        </tr>
+            {% endfor %}
+        </table>
             {% endif %}
-            {% for key, value in product.items %}    
-            {% if key == "prData" %}
+
+
+
+
+            <!-- {% for key, value in product.items %} 
+           
             <table class="styled-table">
                 <tr>
                     <th>select</th>
@@ -361,19 +413,22 @@
                 </tr>
                 {% for key1 in value %}
                 <tr>
-                  <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
-                    {% for key2,value2 in key1.items %}
+                    {% for key3,value3 in key1.items %}
+                    {% if key3 == "ProductID" %}                   
+                    <td><input type="checkbox" id={{value3}} name={{value3}} value={{value3}}></td>
+                    {% endif %}
+                    {% endfor %}
+
+                  {% for key2,value2 in key1.items %}
                     <td>{{value2}} </td>
                     {% endfor %}
                 </tr>
                 {% endfor %}
-            </table>
-            {% endif %}
-           
-            {% endfor %}   
-            {% if product.items %}
+            </table> --> 
+            {% endfor %}  
+            {% if product %}
             <button type="button" class="btn" onclick="addRmProduct()">Add to Cart</button> 
-            <button type="button" class="btn" onclick="addRmProduct()">Show Cart</button> 
+            <!-- <button type="button" class="btn" onclick="addRmProduct()">Show Cart</button>  -->
             {% endif %}
           
         </div>
