@@ -104,7 +104,8 @@ def recommend(request):
         return render(request,'app1/recommend.html',context)
 
     else:
-        return render(request,'app1/recommend.html')
+        context = { "response" : "POST Response Expected"}
+        return render(request,'app1/recommend.html',context)
 
 def contact(request):
     if request.method == 'POST':
