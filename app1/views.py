@@ -68,8 +68,22 @@ def index(request):
     if request.method == "POST":
         received_json_data = json.loads(request.body.decode("utf-8"))
         name = received_json_data["name"]
-        context = {name : str(get_recommendations(name))}
-        print("HERE", context)
+        # context = {name : str(get_recommendations(name))}
+        # print("HERE", context)
+
+        try:
+            indicesrank = get_recommendations(name)
+            metadata2 = pd.read_csv('DataProduct.csv', low_memory=False)
+            df2 = pd.DataFrame(metadata2)
+            #context = { "product" : str(get_recommendations(product))}         
+            #context = { "product" : json.loads('{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"AC001","OpptyName":"AbcOP1","ProductID":"PR001","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p002","AccountName":"AC002","OpptyName":"AbcOP2","ProductID":"PR002","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p003","AccountName":"AC003","OpptyName":"AbcOP3","ProductID":"PR003","ProductName":"MR","Quantity":"1","NetPrice":"5000"}]}')}
+            #  metadata2 = pd.read_csv('datav2.csv', low_memory=False)
+            #  df2 = pd.DataFrame(metadata2)           
+            #  print('------>'+df2.iloc[[0,2]].to_json(orient = 'records'))
+            context = { "product" :json.loads(df2.iloc[indicesrank].to_json(orient = 'records'))}
+        except:
+            context = { "product" : "Wrong Product Name"}
+
     else:
         context = { "response" : "POST Response Expected"}
 
