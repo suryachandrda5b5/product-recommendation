@@ -31,11 +31,11 @@ tfidf = TfidfVectorizer(stop_words='english')
 # metadata['OpportunityId'] = metadata['OpportunityId'].fillna('')
 metadata['AccountName'] = metadata['AccountName'].fillna('')
 # metadata['ProductID'] = metadata['ProductID'].fillna('')
-metadata['ProductName'] = metadata['ProductName'].fillna('').drop_duplicates()
+metadata['ProductName'] = metadata['ProductName'].fillna('')
 # metadata['AccountName'] = metadata['AccountName'].fillna('')
 # metadata['features'] = metadata['OpportunityId'] + metadata['AccountName'] + metadata['ProductID'] + metadata['OpptyName']
 # metadata['features'] = metadata['AccountName']
-metadata['features'] = metadata['AccountName'] + metadata['OpptyName']  + metadata['ProductName'] + metadata['Country']
+metadata['features'] = metadata['AccountName'] + metadata['OpptyName']  + metadata['ProductName'].drop_duplicates() + metadata['Country']
 #Construct the required TF-IDF matrix by fitting and transforming the data
 tfidf_matrix = tfidf.fit_transform(metadata['features'])
 tfidf.get_feature_names()[0:12038]
