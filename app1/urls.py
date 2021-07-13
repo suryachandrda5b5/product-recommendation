@@ -7,5 +7,6 @@ urlpatterns = [
     path('first',views.firstPage,name='first'),
     path('contact',views.contact,name='contact'),
     path('about',views.about,name='about'),
+    path('recommend',views.recommend,name='recommend'),
 ]
 urlpatterns += staticfiles_urlpatterns()
