@@ -349,29 +349,24 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
 
     <section id="contact-table" class="py-3">
         <div class="container">      
-
+			<!--
             {% if product %}
 
 			<h3>Recommended Products</h3>
 			<table class="styled-table">
                 <tr>
                     <th align="left">select</th>
-                    <!-- <th>OpportunityId</th> -->
-                    <!-- <th>AccountName</th> -->
-                    <!-- <th>OpptyName</th> -->
                     <th align="left">Product Name</th>
                     <th align="left">Product ID</th>
-                    
                     <th>Product Description</th>
-                    <!-- <th>NetPrice</th>                     -->
                 </tr>
 				
 				{% for key in product %}            
 				<tr>
 					{% for key1,value1 in key.items %}
-					{% if key1 == "ProductExternalID" %}                   
-						<td><input type="checkbox" id={{value1}} name={{value1}} value={{value1}}></td>
-					{% endif %}
+						{% if key1 == "ProductExternalID" %}                   
+							<td><input type="checkbox" id={{value1}} name={{value1}} value={{value1}}></td>
+						{% endif %}
 					{% endfor %}
 
 					{% for key2, value2 in key.items  %}
@@ -391,7 +386,7 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
 				{% endfor %}
 			</table>
             {% endif %}
-
+			-->
 
             <!-- {% endfor %}  -->
             {% if product %}
