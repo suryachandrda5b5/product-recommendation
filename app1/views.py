@@ -31,7 +31,7 @@ tfidf = TfidfVectorizer(stop_words='english')
 # metadata['OpportunityId'] = metadata['OpportunityId'].fillna('')
 metadata['AccountName'] = metadata['AccountName'].fillna('')
 # metadata['ProductID'] = metadata['ProductID'].fillna('')
-metadata['ProductName'] = metadata['ProductName'].fillna('')
+metadata['ProductName'] = metadata['ProductName'].fillna('').drop_duplicates()
 # metadata['AccountName'] = metadata['AccountName'].fillna('')
 # metadata['features'] = metadata['OpportunityId'] + metadata['AccountName'] + metadata['ProductID'] + metadata['OpptyName']
 # metadata['features'] = metadata['AccountName']
