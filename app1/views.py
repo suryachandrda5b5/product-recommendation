@@ -83,6 +83,10 @@ def about(request):
     context = { "response" : "POST Response Expected"}
     return render(request,'app1/about.html',context)
 
+def recommend(request):
+    context = { "response" : "POST Response Expected"}
+    return render(request,'app1/recommend.html',context)
+
 def contact(request):
     if request.method == 'POST':
         product = request.POST['product']
