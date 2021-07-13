@@ -361,11 +361,11 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
                     <!-- <th>OpportunityId</th> -->
                     <!-- <th>AccountName</th> -->
                     <!-- <th>OpptyName</th> -->
-                    <th align="left">Product Name</th>
+                    <th align="left">View</th>
+					<th align="left">Product Name</th>
                     <th align="left">Product ID</th>
                     
-                    <th>Product Description</th>
-					<th>View</th>
+                    <th align="left">Product Description</th>
                     <!-- <th>NetPrice</th>                     -->
                 </tr>
             {% for key in product %}            
@@ -391,7 +391,7 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
               <td align="left">{{value2}} </td>
               {% endif %}
 			  {% if key2 == "ProductID" %}                   
-              <td align="left"><a href="https://gehealthcare-amer--qa.my.salesforce.com/{{value2}}">View</a> </td>
+              <td align="left"><a href="https://gehealthcare-amer--qa.my.salesforce.com/{{value2}}" target="_blank">View</a> </td>
               {% endif %}
             {% endfor %}
         </tr>
