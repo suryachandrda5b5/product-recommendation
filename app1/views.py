@@ -84,28 +84,16 @@ def about(request):
     return render(request,'app1/about.html',context)
     
 def recommend(request):
-    if request.method == 'POST':
-        product = request.POST['product']
-        print(product)
-        # print(type(product))        
-        try:
-            indicesrank = get_recommendations(product)
-            metadata2 = pd.read_csv('DataProduct.csv', low_memory=False)
-            df2 = pd.DataFrame(metadata2)
-            #context = { "product" : str(get_recommendations(product))}         
-            #context = { "product" : json.loads('{"status":"Success","statusCode":"200","resultMessage":"if any error write here","prData":[{"OpportunityId":"p001","AccountName":"AC001","OpptyName":"AbcOP1","ProductID":"PR001","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p002","AccountName":"AC002","OpptyName":"AbcOP2","ProductID":"PR002","ProductName":"MR","Quantity":"1","NetPrice":"5000"},{"OpportunityId":"p003","AccountName":"AC003","OpptyName":"AbcOP3","ProductID":"PR003","ProductName":"MR","Quantity":"1","NetPrice":"5000"}]}')}
-            #  metadata2 = pd.read_csv('datav2.csv', low_memory=False)
-            #  df2 = pd.DataFrame(metadata2)           
-            #  print('------>'+df2.iloc[[0,2]].to_json(orient = 'records'))
-            context = { "product" :json.loads(df2.iloc[indicesrank].to_json(orient = 'records'))}
-        except:
-            context = { "product" : "Wrong Product Name"}
-        # print("HERE", context)
-        return render(request,'app1/recommend.html',context)
+    product = "MAC 2000"
+    try:
+        indicesrank = get_recommendations(product)
+        metadata2 = pd.read_csv('DataProduct.csv', low_memory=False)
+        df2 = pd.DataFrame(metadata2)
+        context = { "product" :json.loads(df2.iloc[indicesrank].to_json(orient = 'records'))}
+    except:
+        context = { "product" : "Wrong Product Name"}
+    return render(request,'app1/recommend.html',context)
 
-    else:
-        context = { "response" : "POST Response Expected"}
-        return render(request,'app1/recommend.html',context)
 
 def contact(request):
     if request.method == 'POST':
