@@ -357,7 +357,7 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
             <h3>Recommended Products</h3>
              <table class="styled-table">
                 <tr>
-                    <th align="left">select</th>
+                    <th align="left"></th>
                     <!-- <th>OpportunityId</th> -->
                     <!-- <th>AccountName</th> -->
                     <!-- <th>OpptyName</th> -->
@@ -365,6 +365,7 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
                     <th align="left">Product ID</th>
                     
                     <th>Product Description</th>
+					<th>View</th>
                     <!-- <th>NetPrice</th>                     -->
                 </tr>
             {% for key in product %}            
@@ -388,6 +389,9 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
              {% endif %} -->
               {% if key2 == "ProductDescription" %}                   
               <td align="left">{{value2}} </td>
+              {% endif %}
+			  {% if key2 == "ProductID" %}                   
+              <td align="left"><a href="https://gehealthcare-amer--qa.my.salesforce.com/{{value2}}">View</a> </td>
               {% endif %}
             {% endfor %}
         </tr>
