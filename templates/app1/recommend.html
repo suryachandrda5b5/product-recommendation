@@ -334,10 +334,12 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
             {% for key in product %}            
             <tr>
                 {% for key1,value1 in key.items %}
-                {% if key1 == "ProductExternalID" %}                   
+                {% if key1 == "ProductID" %}                   
                 <td>
 					<!-- <input type="checkbox" id={{value1}} name={{value1}} value={{value1}}> -->
-					<img src="{% static 'img/wrench.png' %}" alt="Configure">
+					<a href="https://gehealthcare-amer--qa.my.salesforce.com/apex/Apttus_Config2__Cart#!/flows/Equipment_Flow/CartGrid/businessObjects/a6R0c000000IVBK/products/{{value2}}/configure" target="_blank">
+					<img src="{% static 'img/wrench.png' %}" alt="Configure" style="width: 20px; height: 20px;">
+					</a>
 				</td>
                 {% endif %}
                 {% endfor %}
@@ -356,9 +358,9 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
               {% if key2 == "ProductDescription" %}                   
               <td align="left">{{value2}} </td>
               {% endif %}
-			  {% if key2 == "ProductID" %}                   
+			  <!-- {% if key2 == "ProductID" %}                   
               <td align="left"><a href="https://gehealthcare-amer--qa.my.salesforce.com/{{value2}}" target="_blank">View</a> </td>
-              {% endif %}
+              {% endif %} -->
             {% endfor %}
         </tr>
             {% endfor %}
