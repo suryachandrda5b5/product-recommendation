@@ -335,7 +335,10 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
             <tr>
                 {% for key1,value1 in key.items %}
                 {% if key1 == "ProductExternalID" %}                   
-                <td><input type="checkbox" id={{value1}} name={{value1}} value={{value1}}></td>
+                <td>
+					<!-- <input type="checkbox" id={{value1}} name={{value1}} value={{value1}}> -->
+					<img src="{% static 'img/wrench.png' %}" alt="Configure">
+				</td>
                 {% endif %}
                 {% endfor %}
 
